@@ -183,10 +183,10 @@ while choice != 'quit':         #until they hit quit
     if choice == 'stats':
         rollStats()
     #option to create NPC
-    if choice == 'npc':
+    elif choice == 'npc':
         lastNPC = NPCGen()
     #option to test shit
-    if choice == 'test':
+    elif choice == 'test':
         print('Name' + pickName('Female'))
     #option to quit
     elif choice == 'quit':
