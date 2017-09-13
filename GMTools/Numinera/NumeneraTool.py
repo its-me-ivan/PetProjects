@@ -26,20 +26,6 @@ def rollDisp(quant, sides):
         print()
         print('Total: ' + str(total))
 
-#roll a character stat pool of 6 stats each 4d6 drop low
-def rollStats():
-    print()
-    print('Stat pool: ', end = '')
-    for i in range(6):                  #6 stats to roll for
-        dice = [roll(6), roll(6), roll(6), roll(6)]     #set dice values
-        dice.sort()                     #numerical order
-        total = sum(dice[1:4])          #total all but lowest
-        #print out the stat
-        if i < 5:
-            print(str(total) + ', ', end = '')
-        else:
-            print(str(total))
-
 #generate a rondom NPC
 def NPCGen():
     gender = getGender()
@@ -169,10 +155,9 @@ def saveNPC(NPC):
 choice = 'initial'      #arbitrary initial value
 
 print('-------------------------------------------')        #show commands
-print('Ivan\'s DM Helper (Python Version)')
+print('Ivan\'s GM Helper (Numenera Version)')
 print('Comands:')
 print('Number and kind of dice to roll (ex: 10d20)')
-print('\"stats\" to roll a character stat pool')
 print('\"npc\" to generate a random NPC')
 print('\"save\" to save your last NPC')
 print('\"quit\" to quit')
@@ -187,10 +172,7 @@ while choice != 'quit':         #until they hit quit
     choice = choice.lower()     #convert to lowercase
 
     #option to roll a stat pool
-    if choice == 'stats':
-        rollStats()
-    #option to create NPC
-    elif choice == 'npc':
+    if choice == 'npc':
         lastNPC = NPCGen()
     #option to save NPC
     elif choice == 'save':
