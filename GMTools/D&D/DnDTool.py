@@ -155,6 +155,15 @@ def getMannerism():
     mannerism = manList[roll(len(manList))-1]
     return mannerism
 
+#Save the last NPC generated to a text file
+def saveNPC(NPC):
+    #allow user to add notes
+    print('\nWhat notes would you like?')
+    notes = input()
+    #save info
+    SavedNPCs = open('SavedNPCs.txt', 'a')
+    SavedNPCs.write(NPC + '\n\nNotes: ' + notes + '\n-------------------------------------------\n')
+    SavedNPCs.close()
 
 #main function
 choice = 'initial'      #arbitrary initial value
@@ -165,8 +174,11 @@ print('Comands:')
 print('Number and kind of dice to roll (ex: 10d20)')
 print('\"stats\" to roll a character stat pool')
 print('\"npc\" to generate a random NPC')
+print('\"save\" to save your last NPC')
 print('\"quit\" to quit')
 print('-------------------------------------------')
+
+lastNPC = 'None Saved\n'
 
 while choice != 'quit':         #until they hit quit
     print()
@@ -180,9 +192,12 @@ while choice != 'quit':         #until they hit quit
     #option to create NPC
     elif choice == 'npc':
         lastNPC = NPCGen()
+    #option to save NPC
+    elif choice == 'save':
+        saveNPC(lastNPC)
     #option to test shit
     elif choice == 'test':
-        print(lastNPC)
+        saveNPC(lastNPC)
     #option to quit
     elif choice == 'quit':
         print()
