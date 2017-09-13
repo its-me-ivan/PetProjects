@@ -1,4 +1,4 @@
-import random, sys, string
+import random, sys, string, csv, numpy as np
 
 #function to roll dice
 def roll(sides):
@@ -165,6 +165,18 @@ def saveNPC(NPC):
     SavedNPCs.write(NPC + '\n\nNotes: ' + notes + '\n-------------------------------------------\n')
     SavedNPCs.close()
 
+#Generate loot drop based on gold value
+def loot():
+    print('\nValue of loot in gold')
+    tValue = int(input())
+    cValue = .6*tValue
+    iValue = .4*tValue
+    remValue = iValue
+
+    loot = np.genfromtext('Tables\Loot.csv', names=True, delimiter=',', dtype=None)
+    print(loot)
+    #loot.close()
+
 #main function
 choice = 'initial'      #arbitrary initial value
 
@@ -197,7 +209,7 @@ while choice != 'quit':         #until they hit quit
         saveNPC(lastNPC)
     #option to test shit
     elif choice == 'test':
-        saveNPC(lastNPC)
+        loot()
     #option to quit
     elif choice == 'quit':
         print()
