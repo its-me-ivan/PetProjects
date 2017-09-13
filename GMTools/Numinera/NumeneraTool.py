@@ -26,28 +26,13 @@ def rollDisp(quant, sides):
         print()
         print('Total: ' + str(total))
 
-#roll a character stat pool of 6 stats each 4d6 drop low
-def rollStats():
-    print()
-    print('Stat pool: ', end = '')
-    for i in range(6):                  #6 stats to roll for
-        dice = [roll(6), roll(6), roll(6), roll(6)]     #set dice values
-        dice.sort()                     #numerical order
-        total = sum(dice[1:4])          #total all but lowest
-        #print out the stat
-        if i < 5:
-            print(str(total) + ', ', end = '')
-        else:
-            print(str(total))
-
 #generate a rondom NPC
 def NPCGen():
     gender = getGender()
     name = nameChoice(gender)
-    race = getRace()
     appearance = getAppearance()
     mannerism = getMannerism()
-    NPC = 'Name: ' + name + '\n\n' + 'Sex: ' + gender + '\n\n' + 'Race: ' + race + '\n\n' + 'Appearance: ' + appearance + '\n\n' + 'Mannerism: ' + mannerism
+    NPC = 'Name: ' + name + '\n\n' + 'Sex: ' + gender + '\n\n' + 'Appearance: ' + appearance + '\n\n' + 'Mannerism: ' + mannerism
 
     print('-------------------------------------------')
     print(NPC)
@@ -65,23 +50,23 @@ def nameChoice(gender):
 
 #choose for NPC from existing list (UNDER CONSTRUCTION)
 def pickName(gender):
-    mNames = ['Adair', 'Adriel', 'Altair', 'Aurelian', 'Aurelius', 'Bastian', 'Cassial', 'Cassius', 'Chaniel',
-        'Cyprian', 'Diare', 'Darius', 'Destin', 'Drake', 'Drystan', 'Eoin', 'Fineas', 'Finian', 'Fyodor', 'Gareth',
-        'Gavriel', 'Griffin', 'Hadriel', 'Hesperos', 'Iagan', 'Ignatius', 'Korbin', 'Kyler', 'Lucien', 'Marius',
-        'Mathieu', 'Nuriel', 'Oisin', 'Orion', 'Orpheus', 'Peregrine', 'Perseus', 'Phelan', 'Remus', 'Rhyan', 
-        'Rhydderch', 'Sebastian', 'Seraphim', 'Sirius', 'Tavish', 'Tearlach', 'Thaniel', 'Torian', 'Torin', 'Urien',
+    mNames = ['Adair', 'Adriak', 'Altair', 'Aurelian', 'Aureliak', 'Bastian', 'Casskis', 'Cassid', 'Chan',
+        'Cyprian', 'Diare', 'Darius', 'Destin', 'Darmuk', 'Drystan', 'Eoin', 'Fineak', 'Folan', 'Dydor', 'Gareth',
+        'Gavrien', 'Grikin', 'Nadriel', 'Hesperog', 'Iagan', 'Ignatak', 'Korgin', 'Kyger', 'Lucig', 'Marius',
+        'Matheg', 'Nuriel', 'Oisin', 'Orgon', 'Orpheus', 'Perin', 'Perseg', 'Phelan', 'Remus', 'Rhyan', 
+        'Rhydderch', 'Sebast', 'Seraphim', 'Sirius', 'Tavish', 'Tearlach', 'Thaniel', 'Torian', 'Torin', 'Urien',
         'Xanthus', 'Zephyr', 'Zorion']
-    fNames = ['Abrielle', 'Adara', 'Aiyana', 'Alissa', 'Alexandra', 'Amara', 'Anatola', 'Anya', 'Arcadia', 
-        'Ariadne', 'Arianwen', 'Aurelia', 'Avalon', 'Breena', 'Brielle', 'Cambria', 'Cara', 'Carys', 'Cassia',
-        'Cassiopeia', 'Cora', 'Eira', 'Eirian', 'Elysia', 'Evadne', 'Guinevere', 'Hannelore', 'Ianthe', 'Ignacia',
-        'Iseult', 'Isolde', 'Jessalyn', 'Kara', 'Kerensa', 'Kyra', 'Leila', 'Lilith', 'Liora', 'Lyra', 'Maia',
-        'Mireille', 'Mireya', 'Natania', 'Nerys', 'Nyssa', 'Oralie', 'Ozara', 'Petronela', 'Qadira', 'Quintessa',
-        'Raisa', 'Saoirse', 'Sarai', 'Seraphina', 'Sorcha', 'Terra', 'Thalia', 'Theia', 'Tressa', 'Tristana',
-        'Uriela', 'Vanora', 'Vespera', 'Yadira', 'Yseilt', 'Zaira', 'Zora']
-    nNames = ['Acalia', 'Alaire', 'Auristela', 'Briallan', 'Briseis', 'Dagen', 'Devlin', 'Devlyn', 'Eliron', 'Evanth',
-        'Gaerwn', 'Ginerva', 'Katriel', 'Kyrielle', 'Leira', 'Liriene', 'Liron', 'Maylea', 'Meira', 'Neirin',
-        'Nyfain', 'Oleisa', 'Orinthea', 'Pryderi', 'Pyralia', 'Pyralis', 'Quinevere', 'Renfrew', 'Saira', 'Sarielle',
-        'Serian', 'Severin', 'Ulyssia', 'Vasilis', 'Xara', 'Xylia', 'Yakira', 'Yeira', 'Yeriel', 'Yestin', 'Zaniel',
+    fNames = ['Abrielle', 'Adara', 'Aiyana', 'Alissa', 'Alegandra', 'Amara', 'Anatola', 'Anya', 'Arcadia', 
+        'Ariadne', 'Ariaga', 'Aurelia', 'Avalon', 'Breena', 'Brianuk', 'Cambria', 'Cara', 'Carys', 'Cassia',
+        'Caniopa', 'Cora', 'Eira', 'Eirian', 'Elysia', 'Evadne', 'Guinekar', 'Hannelore', 'Ianthe', 'Ignacia',
+        'Iseult', 'Isolde', 'Jessalyd', 'Kara', 'Kerensa', 'Kyra', 'Leilak', 'Lilith', 'Liora', 'Lyra', 'Moy',
+        'Mireioy', 'Mireya', 'Natania', 'Nerys', 'Nyssa', 'Oralie', 'Ozara', 'Petronela', 'Qadira', 'Quintessa',
+        'Raisa', 'Saoirse', 'Sarai', 'Seraphin', 'Sorcha', 'Terra', 'Thaliad', 'Theiak', 'Tressa', 'Tristaga',
+        'Vuriel', 'Vanora', 'Vespera', 'Yadira', 'Yseilt', 'Zaira', 'Zora']
+    nNames = ['Akaliak', 'Alaire', 'Auristev', 'Briallan', 'Briseis', 'Dagen', 'Devlin', 'Devlam', 'Eliron', 'Evanth',
+        'Gaegwin', 'Ginerva', 'Katriel', 'Kyrielle', 'Leirum', 'Liriene', 'Liron', 'Maylea', 'Meira', 'Neirin',
+        'Nyfain', 'Oleisa', 'Orinthea', 'Pryderi', 'Pyralia', 'Pyralis', 'Quinevek', 'Renfrew', 'Saira', 'Sarielle',
+        'Serian', 'Severin', 'Ulyssa', 'Vasilis', 'Xara', 'Xylia', 'Yakira', 'Yeira', 'Yeriel', 'Yestin', 'Zaniel',
         'Zarek']
     if gender == 'Male':
         names = mNames
@@ -95,63 +80,40 @@ def pickName(gender):
 
 #make a name for NPC (UNDER CONSTRUCTION)
 def makeName():
-    nameParts = [['', '', '', '', '', 'a', 'be', 'de', 'el', 'fa', 'jo', 'ki', 'la', 'ma', 'na', 'o', 'pa', 're', 'si', 'ta', 'va'],
-        ['bar', 'ched', 'dell', 'far', 'gran', 'hal', 'jen', 'kel', 'lim', 'mor', 'net', 'penn', 'quil', 'rond', 'sark', 'shen', 'tur', 'vash', 'yor', 'zen'],
-        ['', 'a', 'ac', 'ai', 'al', 'am', 'an', 'ar', 'ea', 'el', 'er', 'ess', 'ett', 'ic', 'id', 'il', 'in', 'is', 'or', 'us']]
+    nameParts = [['', '', '', '', '', 'a', 'be', 'ba', 'de', 'da', 'el', 'fa', 'fo', 'jo', 'ki', 'ko', 'la', 'ma', 'mu', 'na', 'o', 'pa', 'po', 'pe', 're', 'si', 'so', 'ta', 'va', 'wi'],
+        ['bar', 'ched', 'dell', 'far', 'gran', 'hal', 'jen', 'kel', 'lim', 'mor', 'net', 'penn', 'quil', 'rin', 'rond', 'sark', 'shen', 'tur', 'vash', 'yor', 'zen'],
+        ['', '', '', '', 'a', 'ac', 'ai', 'al', 'am', 'an', 'ar', 'ek', 'el', 'er', 'ess', 'et', 'ik', 'id', 'il', 'in', 'is', 'or', 'us']]
     name = nameParts[0][roll(len(nameParts[0]))-1] + nameParts[1][roll(len(nameParts[1]))-1] + nameParts[2][roll(len(nameParts[2]))-1]
     name = name.title()
     return name
 
 #choose gender for NPC
 def getGender():
-    choose = roll(10)
-    if choose < 7:
+    choose = roll(2)
+    if choose < 2:
         gender = 'Male'
     else:
         gender = 'Female'
     return gender
 
-#choose race for NPC
-def getRace():
-    race = ''
-    choose = roll(22)
-    if choose < 10:
-        race = 'Human'
-    elif choose < 13:
-        race = 'Dwarf'
-    elif choose < 16:
-        race = 'Elf'
-    elif choose < 18:
-        race = 'Halfling'
-    elif choose < 19:
-        race = 'Dragonborn'
-    elif choose < 20:
-        race = 'Gnome'
-    elif choose < 21:
-        race = 'Half-Elf'
-    elif choose < 22:
-        race = 'Half-Orc'
-    else:
-        race = 'Tiefling'
-    return race
-
 #choose appearance for NPC
 def getAppearance():
-    appList = ['Wears distinctive jewlery', 'Piercings', 'Flamboyant, outlandish clothes', 'Formal, clean clothes',
-        'Ragged, dirty clothes', 'Obvious scar', 'Missing teeth', 'Missing Finger(s)', 'Different colored eyes',
-        'Tatoos', 'Birthmark', 'Androgynous', 'Bald', 'Braided hair or beard', 'Strange hair color', 'Distinctive nose',
-        'Distinctive posture', 'Exceptionally beutiful', 'Exceptionally ugly', 'Exceptionally tall', 'Exceptionally short',
-        'Fatty build', 'Elderly', 'Two gnomes disguized as one big person', 'Child', 'Muscular build']
+    appList = ['Wears distinctive jewlery', 'Piercings', 'Flamboyant, outlandish clothes', 'Formal, clean clothes', 'Pet seski follows',
+        'Ragged, dirty clothes', 'Obvious scar', 'Missing teeth', 'Missing Finger(s)', 'Different colored eyes', 'Cat eyes', 'Scrap metal clothing'
+        'Tatoos', 'Birthmark', 'Androgynous', 'Bald', 'Braided hair or beard', 'Strange hair color', 'Distinctive nose', 'Cybernetic implants',
+        'Distinctive posture', 'Exceptionally beutiful', 'Exceptionally ugly', 'Exceptionally tall', 'Exceptionally short', 'Long canines',
+        'Fatty build', 'Elderly', 'Tentacle', 'Child', 'Muscular build', 'Extremely large eyes', 'Missing limb', 'alien', 'extra fingers', 'Forked tongue']
     appearance = appList[roll(len(appList))-1]
     return appearance
 
 #choose mannerism for NPC
 def getMannerism():
     manList = ['Prone to singing and humming', 'Particularly low or high voice', 'Overenunciates', 'Uses big words',
-        'Frewquently uses wrong word', 'Cusses like a sailor', 'Makes jokes or puns', 'Prone to predictions of doom',
+        'Frequently uses wrong word', 'Cusses like a sailor', 'Makes jokes or puns', 'Prone to predictions of doom',
         'Fidgets', 'Squints', 'Stares into the distance', 'Chews something', 'Paces', 'Taps fingers', 'Twirls hair or beard',
         'Stares intently', 'Closes eyes when talking', 'Slurs words', 'Russian accent', 'Irish accent', 'Absentminded',
-        'Iritated by everything', 'Hidey-ho friends!', 'Doesn\'t percieve gender', 'Alergies', 'Clumsy']
+        'Iritated by everything', 'Hidey-ho friends!', 'Doesn\'t percieve gender', 'Alergies', 'Clumsy', 'Sweedish Chef voice',
+        'Laughs nervously between sentances', 'Head jolts arround like a bird', 'Talks slowly', 'Talks rapidly', 'Keeps trying to talk about fishing']
     mannerism = manList[roll(len(manList))-1]
     return mannerism
 
@@ -169,10 +131,9 @@ def saveNPC(NPC):
 choice = 'initial'      #arbitrary initial value
 
 print('-------------------------------------------')        #show commands
-print('Ivan\'s DM Helper (Python Version)')
+print('Ivan\'s GM Helper (Numenera Version)')
 print('Comands:')
 print('Number and kind of dice to roll (ex: 10d20)')
-print('\"stats\" to roll a character stat pool')
 print('\"npc\" to generate a random NPC')
 print('\"save\" to save your last NPC')
 print('\"quit\" to quit')
@@ -187,10 +148,7 @@ while choice != 'quit':         #until they hit quit
     choice = choice.lower()     #convert to lowercase
 
     #option to roll a stat pool
-    if choice == 'stats':
-        rollStats()
-    #option to create NPC
-    elif choice == 'npc':
+    if choice == 'npc':
         lastNPC = NPCGen()
     #option to save NPC
     elif choice == 'save':
