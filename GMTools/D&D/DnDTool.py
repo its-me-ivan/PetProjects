@@ -47,18 +47,13 @@ def NPCGen():
     race = getRace()
     appearance = getAppearance()
     mannerism = getMannerism()
+    NPC = 'Name: ' + name + '\n\n' + 'Sex: ' + gender + '\n\n' + 'Race: ' + race + '\n\n' + 'Appearance: ' + appearance + '\n\n' + 'Mannerism: ' + mannerism
 
     print('-------------------------------------------')
-    print('Name: ' + name)
-    print()
-    print('Sex: ' + gender)
-    print()
-    print('Race: ' + race)
-    print()
-    print('Appearance: ' + appearance)
-    print()
-    print('Mannerism: ' + mannerism)
+    print(NPC)
     print('-------------------------------------------')
+
+    return NPC
 
 #make a name for NPC (UNDER CONSTRUCTION)
 def nameChoice(gender):
@@ -187,7 +182,7 @@ while choice != 'quit':         #until they hit quit
         lastNPC = NPCGen()
     #option to test shit
     elif choice == 'test':
-        print('Name' + pickName('Female'))
+        print(lastNPC)
     #option to quit
     elif choice == 'quit':
         print()
