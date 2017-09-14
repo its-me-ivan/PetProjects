@@ -47,7 +47,8 @@ def NPCGen():
     race = getRace()
     appearance = getAppearance()
     mannerism = getMannerism()
-    NPC = 'Name: ' + name + '\n\n' + 'Sex: ' + gender + '\n\n' + 'Race: ' + race + '\n\n' + 'Appearance: ' + appearance + '\n\n' + 'Mannerism: ' + mannerism
+    NPC = ('Name: ' + name + '\n\n' + 'Sex: ' + gender + '\n\n' + 'Race: ' + race + 
+        '\n\n' + 'Appearance: ' + appearance + '\n\n' + 'Mannerism: ' + mannerism)
 
     print('-------------------------------------------')
     print(NPC)
@@ -172,11 +173,43 @@ def loot():
     cValue = .6*tValue
     iValue = .4*tValue
     remValue = iValue
+    bMax = 5
+    mMax = 5
+    sMax = 5
+    reward = ''
 
     loot = [np.genfromtxt('Tables\LootBig.csv', names=True, delimiter=',', dtype=None), 
         np.genfromtxt('Tables\LootMed.csv', names=True, delimiter=',', dtype=None), 
         np.genfromtxt('Tables\LootSml.csv', names=True, delimiter=',', dtype=None)]
-    print(loot[2][1][0].decode('ascii'))
+    #Generate Items
+    while iValue >= 1000 and bMax:
+        item = roll(len(loot[0]))-1
+        iValue -= loot[0][item][1]
+        reward += loot[0][item][0].decode('ascii') + '\n\n'
+        bMax -= 1
+    while iValue >= 100 and mMax:
+        item = roll(len(loot[1]))-1
+        iValue -= loot[1][item][1]
+        reward += loot[1][item][0].decode('ascii') + '\n\n'
+        mMax -= 1
+    while iValue >= 20 and sMax:
+        item = roll(len(loot[2]))-1
+        iValue -= loot[2][item][1]
+        reward += loot[2][item][0].decode('ascii') + '\n\n'
+        sMax -= 1
+    cValue += iValue
+    reward += 'GOLD: ' + str(int(cValue))
+
+    print('\nLOOT:\n' +
+        '-------------------------------------------\n' + 
+        reward + '\n' +
+        '-------------------------------------------')
+
+    return reward
+
+#save last loot generated
+def saveLoot(loot):
+    return
 
 #main function
 choice = 'initial'      #arbitrary initial value
@@ -192,6 +225,7 @@ print('\"quit\" to quit')
 print('-------------------------------------------')
 
 lastNPC = 'None Saved\n'
+lastLoot = ''
 
 while choice != 'quit':         #until they hit quit
     print()
@@ -206,8 +240,18 @@ while choice != 'quit':         #until they hit quit
     elif choice == 'npc':
         lastNPC = NPCGen()
     #option to save NPC
-    elif choice == 'save':
-        saveNPC(lastNPC)
+    elif choice == 'npcsave':
+        if lastNPC == '':
+            print('No NPCs have been generated')
+        else:
+            saveNPC(lastNPC)
+    elif choice == 'loot':
+        lastLoot = loot()
+    elif choice == 'lsave':
+        if lastLoot == '':
+            print('No loot has been generated')
+        else:
+            saveloot(lastLoot)
     #option to test shit
     elif choice == 'test':
         loot()
