@@ -173,9 +173,10 @@ def loot():
     iValue = .4*tValue
     remValue = iValue
 
-    loot = np.genfromtext('Tables\Loot.csv', names=True, delimiter=',', dtype=None)
-    print(loot)
-    #loot.close()
+    loot = [np.genfromtxt('Tables\LootBig.csv', names=True, delimiter=',', dtype=None), 
+        np.genfromtxt('Tables\LootMed.csv', names=True, delimiter=',', dtype=None), 
+        np.genfromtxt('Tables\LootSml.csv', names=True, delimiter=',', dtype=None)]
+    print(loot[2][1][0].decode('ascii'))
 
 #main function
 choice = 'initial'      #arbitrary initial value
