@@ -209,6 +209,9 @@ def loot():
 
 #save last loot generated
 def saveLoot(loot):
+    SavedLoot = open('SavedLoot.txt', 'a')
+    SavedLoot.write(loot + '\n-------------------------------------------\n')
+    SavedLoot.close()
     return
 
 #main function
@@ -251,7 +254,7 @@ while choice != 'quit':         #until they hit quit
         if lastLoot == '':
             print('No loot has been generated')
         else:
-            saveloot(lastLoot)
+            saveLoot(lastLoot)
     #option to test shit
     elif choice == 'test':
         loot()
